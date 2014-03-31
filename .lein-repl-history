@@ -1,0 +1,500 @@
+      (CompoundTerm. h arglist)))
+(AtomicTerm. 1)
+((AtomicTerm. :fo) 1)
+(seq ((AtomicTerm. :fo) 1))
+(head ((AtomicTerm. :fo) 1))
+(seq ((AtomicTerm. :fo) 1 2))
+(defmacro with-terms [listing body]
+  `(let ~(vec (mapcat (fn [x] [x `(AtomicTerm. x)])  listing))
+       body))
+(with-terms [y] (y 1))
+(defmacro with-terms [listing body]
+  `(let ~(vec (mapcat (fn [x] [x `(AtomicTerm. ~x)])  listing))
+       body))
+(with-terms [y] (y 1))
+(macroexpand (with-terms [y] (y 1)))
+(macroexpand '(with-terms [y] (y 1)))
+(defmacro with-terms [listing body]
+  `(let ~(vec (mapcat (fn [x] [x `(AtomicTerm. (quote  ~x))])  listing))
+       ~body))
+(macroexpand '(with-terms [y] (y 1)))
+ (with-terms [y] (y 1))
+(head  (with-terms [y] (y 1)))
+(let [symbol 'S form [1 2 3]] (with-terms [If Let Equal Vector? Nth Transform]
+   (If (Vector? symbol)      
+       (reduce
+        (fn [x y]
+          (If y x))
+        (reverse
+         (map-indexed
+          (fn [i x]
+            (let [s (gensym)]
+              (Let [s (Nth symbol i)]
+                   (Transform s (nth form i)))))
+          form))))
+   ))
+(deftype AtomicTerm [h]
+    ITerm
+    (head [x] (head h))
+    clojure.lang.Seqable
+    (seq [x] nil)
+    clojure.lang.IFn
+    (invoke [this x1] (CompoundTerm. h [x1]))
+    (invoke [this x1 x2] (CompoundTerm. h [x1 x2]))
+    (invoke [this x1 x2 x3] (CompoundTerm. h [x1 x2 x3]))
+    (invoke [this x1 x2 x3 x4] (CompoundTerm. h [x1 x2 x3 x4]))
+    (invoke [this x1 x2 x3 x4 x5] (CompoundTerm. h [x1 x2 x3 x4 x5]))
+    (applyTo [this arglist] (CompoundTerm. h arglist)))
+(let [symbol 'S form [1 2 3]] (with-terms [If Let Equal Vector? Nth Transform]
+            #_=>    (If (Vector? symbol)
+            #_=>        (reduce
+            #_=>         (fn [x y]
+            #_=>           (If y x))
+            #_=>         (reverse
+            #_=>          (map-indexed
+            #_=>           (fn [i x]
+            #_=>             (let [s (gensym)]
+            #_=>               (Let [s (Nth symbol i)]
+            #_=>                    (Transform s (nth form i)))))
+            #_=>           form))))
+            #_=>
+            #_=>    ))
+(def s (let [symbol 'S form [1 2 3]] (with-terms [If Let Equal Vector? Nth Transform]
+   (If (Vector? symbol)
+       (reduce
+        (fn [x y]
+          (If y x))
+        (reverse
+         (map-indexed
+          (fn [i x]
+            (let [s (gensym)]
+              (Let [s (Nth symbol i)]
+                   (Transform s (nth form i)))))
+          form)))))))
+(seq s)
+(head s)
+(map head s)
+(first s)
+(seq (first s))
+(seq (second s))
+(map seq (seq (second s)))
+'(if 1 2)
+(let [x 1] `(if ~x 2))
+(let [symbol 'S form [1 2 3]]
+  (with-terms [If Let Equal Vector? Nth Transform]
+   (If (Vector? symbol)
+       (reduce
+        (fn [x y]
+          (If y x))
+        (reverse
+         (map-indexed
+          (fn [i x]
+            (let [s (gensym)]
+              (Let [s (Nth symbol i)]
+                   (Transform s (nth form i)))))
+          form))))))
+^asdf []
+^'asdf []
+^asdf []
+^'asdf []
+^(quote asdf) []
+(def x 'asdf)
+^x []
+Term
+(Term. 1 [1]))
+(Term. 1 [1])
+(term.protocols.CompoundTerm 1 2)
+(term.protocols.CompoundTerm. 1 (2))
+(term.protocols.CompoundTerm. 1 '(2))
+(cons 1 (term.protocols.CompoundTerm. 1 '(2)))
+(defmethod print-dup term.protocols.CompoundTerm [o w]
+  (print-dup (cons (head o)  o) w))
+(defmethod print-dup term.protocols.AtomicTerm [o w]
+  (print-dup (head o) w))
+(let [symbol 'S form [1 2 3]]
+            #_=>   (with-terms [If Let Equal Vector? Nth Transform]
+            #_=>    (If (Vector? symbol)
+            #_=>        (reduce
+            #_=>         (fn [x y]
+            #_=>           (If y x))
+            #_=>         (reverse
+            #_=>          (map-indexed
+            #_=>           (fn [i x]
+            #_=>             (let [s (gensym)]
+            #_=>               (Let [s (Nth symbol i)]
+            #_=>                    (Transform s (nth form i)))))
+            #_=>           form))))))
+(print *1)
+term.protocols.CompoundTerm
+(print (CompoundTerm. 1 [1]))
+(set! *print-dup* true)
+(pr-str (CompoundTerm. 1 [1]))
+(prn (CompoundTerm. 1 [1]))
+(bindings [*print-dup* true] (prn (CompoundTerm. 1 [1])))
+(binding [*print-dup* true] (prn (CompoundTerm. 1 [1])))
+(binding [*print-dup* true] (prn (CompoundTerm. 'a [1])))
+(binding [*print-dup* true] (prn (CompoundTerm. 'a [(AtomicTerm. ])))
+(binding [*print-dup* true] (prn (CompoundTerm. 'a [(AtomicTerm. 'b] 1)))
+(binding [*print-dup* true] (prn (CompoundTerm. 'a [(AtomicTerm. 'b) 1] )))
+(defprotocol IWrappedTerm
+  (inner-value [x]))
+(deftype AtomicTerm [h]
+  IWrappedTerm
+  (inner-value [x] h)
+  ITerm
+  (head [x] (head h))
+  clojure.lang.Seqable
+  (seq [x] nil)
+  clojure.lang.IFn
+  (invoke [this x1] (CompoundTerm. h [x1]))
+  (invoke [this x1 x2] (CompoundTerm. h [x1 x2]))
+  (invoke [this x1 x2 x3] (CompoundTerm. h [x1 x2 x3]))
+  (invoke [this x1 x2 x3 x4] (CompoundTerm. h [x1 x2 x3 x4]))
+  (invoke [this x1 x2 x3 x4 x5] (CompoundTerm. h [x1 x2 x3 x4 x5]))
+  (applyTo [this arglist] (CompoundTerm. h arglist)))
+ (let [symbol 'S form [1 2 3]]
+            #_=>   (with-terms [If Let Equal Vector? Nth Transform]
+            #_=>    (If (Vector? symbol)
+            #_=>        (reduce
+            #_=>         (fn [x y]
+            #_=>           (If y x))
+            #_=>         (reverse
+            #_=>          (map-indexed
+            #_=>           (fn [i x]
+            #_=>             (let [s (gensym)]
+            #_=>               (Let [s (Nth symbol i)]
+            #_=>                    (Transform s (nth form i)))))
+            #_=>           form))))))
+(def t *1)
+t
+(binding [*print-dup* true] (prn t))
+(in-ns 'term.match)
+(def Pattern (AtomicTerm 'Pattern))
+(defn pattern? [x]
+  (= 'Pattern (head x)))
+(defn pattern-name [x]
+  (first x))
+(def Pattern (AtomicTerm 'Pattern))
+term.protocols.AtomicTerm
+AtomicTerm
+AtomicTerm.
+(use 'term.protocols)
+(in-ns 'user)
+(use 'term.match)
+(use 'term.match :reload)
+quit
+(use 'term.match)
+(use 'term.protocols)
+AtomicTerm
+CompoundTerm
+(use 'term.match)
+(use 'term.match :reload)
+quit
+(use 'term.match)
+(use 'term.match :reload)
+(Pattern :a)
+(Pattern 'x)
+(head (Pattern 'x))
+(in-ns 'term.match)
+(head (Pattern 'x))
+(first (Pattern 'x))
+(match 1 1 )
+(match (Pattern 'a) 1)
+(use 'term.core)
+(use 'term.core :reload)
+(Pattern 1)
+(replacement-rule (Pattern 'a) '(map #(+ 1) a))
+( (replacement-rule (Pattern 'a) '(map #(+ 1) a)) [1 2 3])
+( (replacement-rule (Pattern 'a) '(map #(+ 1) a)) 1)
+( (replacement-rule (Pattern 'a) '(map #(+ 1) a)) [1])
+( (replacement-rule (Pattern 'a) 'a) [1])
+( (replacement-rule (Pattern 'a) 'a) [1 2])
+( (replacement-rule (Pattern 'a) '(map identity a)) [1 2])
+( (replacement-rule (Pattern 'a) '(map #(+ 1 %) a)) [1 2])
+( (replacement-rule (Pattern 'a) '(map #(+ 1 %) a)) [1 2 3])
+(Vector 1 2 3 4)(def transform-rule
+  (replacement-rule
+   (Transform (Pattern 'sym) (Pattern 'f))
+   '(with-terms [If Let Equal Vector? Nth Transform]
+      (cond
+       (number? f)
+       (Equal sym f)
+       (vector? f)
+       (If (Vector? sym)
+           (reduce
+            (fn [x y]
+              (If y x))
+            (reverse
+             (map-indexed
+              (fn [i x]
+                (let [s (gensym)]
+                  (Let [s (Nth sym i)]
+                       (Transform s (nth form i)))))
+              form))))))))
+(def transform-rule
+  (replacement-rule
+   (Transform (Pattern 'sym) (Pattern 'f))
+   '(with-terms [If Let Equal Vector? Nth Transform]
+      (cond
+       (number? f)
+       (Equal sym f)
+       (vector? f)
+       (If (Vector? sym)
+           (reduce
+            (fn [x y]
+              (If y x))
+            (reverse
+             (map-indexed
+              (fn [i x]
+                (let [s (gensym)]
+                  (Let [s (Nth sym i)]
+                       (Transform s (nth form i)))))
+              form))))))))
+(def transform-rule
+  (replacement-rule
+   (with-terms [Transform Pattern] (Transform (Pattern 'sym) (Pattern 'f)))
+   '(with-terms [If Let Equal Vector? Nth Transform]
+      (cond
+       (number? f)
+       (Equal sym f)
+       (vector? f)
+       (If (Vector? sym)
+           (reduce
+            (fn [x y]
+              (If y x))
+            (reverse
+             (map-indexed
+              (fn [i x]
+                (let [s (gensym)]
+                  (Let [s (Nth sym i)]
+                       (Transform s (nth form i)))))
+              form))))))))
+(transform-rule (def Transform (AtomicTerm. 'Transform))
+(def Pattern (AtomicTerm. 'Pattern))
+)
+(def Transform (AtomicTerm. 'Transform))
+(def Pattern (AtomicTerm. 'Pattern))
+AtomicTerm.
+(def Transform (term.protocols.AtomicTerm. 'Transform))
+(def Pattern (term.protocols.AtomicTerm. 'Pattern))
+   (Transform (Pattern 'sym) (Pattern 'f))
+(def transform-rule
+  (replacement-rule
+   (Transform (Pattern 'sym) (Pattern 'f))
+   '(with-terms [If Let Equal Vector? Nth Transform]
+      (cond
+       (number? f)
+       (Equal sym f)
+       (vector? f)
+       (If (Vector? sym)
+           (reduce
+            (fn [x y]
+              (If y x))
+            (reverse
+             (map-indexed
+              (fn [i x]
+                (let [s (gensym)]
+                  (Let [s (Nth sym i)]
+                       (Transform s (nth form i)))))
+              form))))))))
+(tranform-rule (Transform 'x [1 2 3]))
+(transform-rule (Transform 'x [1 2 3]))
+(match (Transform 'x [1 2 3])  (Transform (Pattern 'sym) (Pattern 'f)))
+(match  (Transform (Pattern 'sym) (Pattern 'f)) (Transform 'x [1 2 3])  )
+z/down
+(z/down (Transform 'x [1 2 3]))
+(z/down (zipper (Transform 'x [1 2 3])))
+(z/down (z/zipper (Transform 'x [1 2 3])))
+(first (Transform 'x [1 2 3]))
+seq?
+(seq? (Transform 'x [1 2 3]))
+(coll? (Transform 'x [1 2 3]))
+(instance? ISeq (Transform 'x [1 2 3]))
+(instance? clojure.lang.ISeq (Transform 'x [1 2 3]))
+(instance? clojure.lang.Seqable [1])
+(instance? clojure.lang.Seqable {:a 1})
+(instance? clojure.lang.Seqable #{})
+(instance? clojure.lang.Seqable '())
+ (first (Transform 'x [1 2 3]))
+(match  (Transform (Pattern 'sym) (Pattern 'f)) (Transform 'x [1 2 3])  )
+(match (Pattern 'a) 1)
+(match (Transform 'x) (Transform 1))
+(Transform 1)
+(sequential? (Transform 1))
+(in-ns 'terms.protocols)
+(deftype CompoundTerm [h b]
+  clojure.lang.Sequential
+  clojure.lang.Seqable
+  (seq [x] (seq b))
+  ITerm
+  (head [x] h)
+  clojure.lang.IFn
+  (invoke [this x1] (CompoundTerm. this [x1]))
+  (invoke [this x1 x2] (CompoundTerm. this [x1 x2]))
+  (invoke [this x1 x2 x3] (CompoundTerm. this [x1 x2 x3]))
+  (invoke [this x1 x2 x3 x4] (CompoundTerm. this [x1 x2 x3 x4]))
+  (invoke [this x1 x2 x3 x4 x5] (CompoundTerm. this [x1 x2 x3 x4 x5]))
+  (applyTo [this arglist] (CompoundTerm. this arglist))
+  )
+(in-ns 'term.protocols)
+(deftype CompoundTerm [h b]
+  clojure.lang.Sequential
+  clojure.lang.Seqable
+  (seq [x] (seq b))
+  ITerm
+  (head [x] h)
+  clojure.lang.IFn
+  (invoke [this x1] (CompoundTerm. this [x1]))
+  (invoke [this x1 x2] (CompoundTerm. this [x1 x2]))
+  (invoke [this x1 x2 x3] (CompoundTerm. this [x1 x2 x3]))
+  (invoke [this x1 x2 x3 x4] (CompoundTerm. this [x1 x2 x3 x4]))
+  (invoke [this x1 x2 x3 x4 x5] (CompoundTerm. this [x1 x2 x3 x4 x5]))
+  (applyTo [this arglist] (CompoundTerm. this arglist))
+  )
+(in-ns 'term.match)
+ (match (Transform 'x) (Transform 1))
+(z/down (z/zipper (Transform 'x [1 2 3])))
+(z/down (z/zipper (CompoundTerm. 'x [1 2 3])))
+(z/down (z/zipper (term.protocols.CompoundTerm. 'x [1 2 3])))
+(z/down (z/zipper (term.protocols.CompoundTerm. 'x [1 2 3]) (term.protocols.CompoundTerm. 'x [1 2 3]))))
+ (term.protocols.CompoundTerm. 'x [1 2 3]))
+ (term.protocols.CompoundTerm. 'x [1 2 3])
+(first  (term.protocols.CompoundTerm. 'x [1 2 3]))
+(sequential?  (term.protocols.CompoundTerm. 'x [1 2 3]))
+quit
+(use 'term.core)
+(use 'term.protocols)
+(use 'term.core)
+quit
+(use 'term.core)
+(use 'term.core :reload)
+quit
+(use 'term.core )
+(in-ns 'term.match)
+(in-ns 'term.core )
+match
+(match (Transform 1) (Transform 1))
+(match (Transform (Pattern 'x)) (Transform 1))
+(def transform-rule
+  (replacement-rule
+   (Transform (Pattern 'sym) (Pattern 'f))
+   '(with-terms [If Let Equal Vector? Nth Transform]
+      (cond
+       (number? f)
+       (Equal sym f)
+       (vector? f)
+       (If (Vector? sym)
+           (reduce
+            (fn [x y]
+              (If y x))
+            (reverse
+             (map-indexed
+              (fn [i x]
+                (let [s (gensym)]
+                  (Let [s (Nth sym i)]
+                       (Transform s (nth form i)))))
+              form))))))))
+(transform-rule (Transform 'x [1 2 3]))
+(transform-rule (Transform ''x [1 2 3]))
+(def rhs '(with-terms [If Let Equal Vector? Nth Transform]
+      (cond
+       (number? f)
+       (Equal sym f)
+       (vector? f)
+       (If (Vector? sym)
+           (reduce
+            (fn [x y]
+              (If y x))
+            (reverse
+             (map-indexed
+              (fn [i x]
+                (let [s (gensym)]
+                  (Let [s (Nth sym i)]
+                       (Transform s (nth form i)))))
+              form)))))))
+(replace-all rhs {'sym 'FOOO})
+(replace-all '(fn [x] sym) {'sym 'FOOO})
+(replace-all '(fn [x] sym sym) {'sym 'FOOO})
+(replace-all ' (fn [i x] {'sym 'FOOO})
+                (let [s (gensym)]
+                  (Let [s (Nth sym i)]
+                       (Transform s (nth form i)))))
+(replace-all ' (fn [i x]
+                (let [s (gensym)]
+                  (Let [s (Nth sym i)]
+                       (Transform s (nth form i))))) {'sym 'FOOO})
+(replace-all '(reduce
+            (fn [x y]
+              (If y x))
+            (reverse
+             (map-indexed
+              (fn [i x]
+                (let [s (gensym)]
+                  (Let [s (Nth sym i)]
+                       (Transform s (nth form i)))))
+              form))) {'sym 'FOOOO})
+(replace-all '(If (Vector? sym)
+           (reduce
+            (fn [x y]
+              (If y x))
+            (reverse
+             (map-indexed
+              (fn [i x]
+                (let [s (gensym)]
+                  (Let [s (Nth sym i)]
+                       (Transform s (nth form i)))))
+              form)))) {'sym 'FOOOO})
+(replace-all '(If (Vector? sym) sym) {'sym 'Foo})
+(replace-all '((Vector? sym) sym) {'sym 'Foo})
+(replace-all '(sym sym) {'sym 'Foo})
+(replace-all '([sym] sym) {'sym 'Foo})
+(replace-all '([1] 1) {1 2})
+(seq? '(1))
+quit
+(use 'riddley.walk)
+ (walk-exprs number? inc '(let [n 1] (+ n 1)))
+ (walk-exprs symbol? (fn [x] :foo) '(let [n 1] (+ n 1)))
+(use 'term.core)
+(AtomicTerm. 'x)
+1
+(hash 1)
+(hash (seq [1 2 3]))
+(hash (list 1 2 3))
+(let [{:keys [a]} {:a 1}] a)
+(term (let [{:keys [a]} {:a 1}] a))
+(quote A.)
+(macroexpand (quote A.))
+(term (map F. [a. b. c.]))
+clojure.lang.PersistentList
+clojure.lang.PersistentList.
+(clojure.lang.PersistentList.)
+Integer
+'Integer
+(head 1)
+Symbol
+String
+Rational
+Keyword
+(defmacro rule2
+  `(reify
+    clojure.lang.Sequential
+    clojure.lang.Seqable
+    (seq [x] (seq [lhs (quote ~rhs)]))
+    ITerm
+    (head [this] (AtomicTerm. 'Rule))
+    clojure.lang.IFn
+    (invoke [this x]
+      (if-let [m# (match (term ~lhs) input#)]
+        (eval (replace-all (term (quote ~rhs)) m#))))))
+(def fib-rules
+  (term
+   [
+    (rule2 (Fib 0) 1)
+    (rule2 (Fib 1) 1)
+    (rule2 (Fib (Pattern a (Blank)))
+           (Plus (Fib (- a 1) (- a 2))))
+    (rule2 (Plus (Pattern a (Blank Integer))
+                 (Pattern b (Blank Integer)))
+           (+ a b))
+    ]))
+quit
