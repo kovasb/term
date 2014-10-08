@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbf8c370-7837-4c8c-8b97-4afaa899f4ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.lein-repl-history" afterPath="$PROJECT_DIR$/.lein-repl-history" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/term/core.clj" afterPath="$PROJECT_DIR$/src/term/core.clj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/term/match.clj" afterPath="$PROJECT_DIR$/src/term/match.clj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.clj" afterPath="$PROJECT_DIR$/project.clj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="term.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,10 +70,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="protocols.clj" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="protocols.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/term/protocols.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="9" selection-start="950" selection-end="950" vertical-scroll-proportion="0.5629139" vertical-offset="0" max-vertical-offset="1905">
+            <state line="34" column="9" selection-start="950" selection-end="950" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2286">
               <folding />
             </state>
           </provider>
@@ -78,16 +82,34 @@
       <file leaf-file-name="zip.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/term/zip.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="144" column="6" selection-start="4107" selection-end="4107" vertical-scroll-proportion="0.0" vertical-offset="2724" max-vertical-offset="3630">
+            <state line="16" column="38" selection-start="0" selection-end="6533" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4356">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.clj" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="core.clj" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/term/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="6069" max-vertical-offset="9600">
+            <state line="107" column="20" selection-start="3054" selection-end="3054" vertical-scroll-proportion="-10.321918" vertical-offset="10968" max-vertical-offset="11844">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="match.clj" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/term/match.clj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="98" column="0" selection-start="2615" selection-end="2615" vertical-scroll-proportion="-0.26923078" vertical-offset="1757" max-vertical-offset="2882">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.clj" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project.clj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="24" selection-start="24" selection-end="24" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
               <folding />
             </state>
           </provider>
@@ -96,7 +118,7 @@
       <file leaf-file-name="core.cljs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/src-cljs/bench/core.cljs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2640">
               <folding />
             </state>
           </provider>
@@ -105,7 +127,7 @@
       <file leaf-file-name="macros.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/src-cljs/bench/macros.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
               <folding />
             </state>
           </provider>
@@ -114,7 +136,7 @@
       <file leaf-file-name="evaluate.cljs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/src-cljs/bench/evaluate.cljs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1440">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2112">
               <folding />
             </state>
           </provider>
@@ -123,7 +145,7 @@
       <file leaf-file-name="zip.cljs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/src-cljs/bench/zip.cljs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4125">
+            <state line="7" column="0" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4950">
               <folding />
             </state>
           </provider>
@@ -142,14 +164,16 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/project.clj" />
+        <option value="$PROJECT_DIR$/src/term/match.clj" />
         <option value="$PROJECT_DIR$/src/term/core.clj" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1680" />
-    <option name="height" value="1024" />
+    <option name="width" value="1024" />
+    <option name="height" value="1058" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -178,6 +202,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -234,7 +259,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -290,15 +314,6 @@
       <setting name="repl" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="ClojureREPL" factoryName="Local">
-      <setting name="useLein" value="true" />
-      <setting name="leinProjectName" value="" />
-      <module name="" />
-      <setting name="jvmArgs" value="" />
-      <setting name="parameters" value="" />
-      <setting name="workingDir" value="" />
-      <method />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -307,17 +322,13 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
+    <configuration default="true" type="ClojureREPL" factoryName="Local">
+      <setting name="useLein" value="true" />
+      <setting name="leinProjectName" value="" />
       <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -345,6 +356,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -446,7 +470,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1680" height="1024" extended-state="6" />
+    <frame x="0" y="22" width="1024" height="1058" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -465,7 +489,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25794622" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19489796" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34070796" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -497,6 +521,55 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/term/protocols.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="9" selection-start="950" selection-end="950" vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="2794">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/term/zip.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="144" column="6" selection-start="4107" selection-end="4107" vertical-scroll-proportion="0.0" vertical-offset="3168" max-vertical-offset="5324">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/term/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="528" max-vertical-offset="14080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src-cljs/bench/core.cljs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2640">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src-cljs/bench/macros.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src-cljs/bench/evaluate.cljs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2112">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src-cljs/bench/zip.cljs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6050">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/term/core.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="0" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="9600">
@@ -549,18 +622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/term/match.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1830" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/term/zip.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="144" column="6" selection-start="4107" selection-end="4107" vertical-scroll-proportion="0.0" vertical-offset="1871" max-vertical-offset="3630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/src-cljs/bench/core.cljs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
@@ -582,23 +643,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/src-cljs/bench/zip.cljs">
+    <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4125">
+        <state line="0" column="24" selection-start="24" selection-end="24" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="972">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/term/core.clj">
+    <entry file="file://$PROJECT_DIR$/src/term/match.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="9600">
+        <state line="98" column="0" selection-start="2615" selection-end="2615" vertical-scroll-proportion="-0.26923078" vertical-offset="1757" max-vertical-offset="2882">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src-cljs/bench/zip.cljs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4950">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/term/protocols.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="9" selection-start="950" selection-end="950" vertical-scroll-proportion="0.5629139" vertical-offset="0" max-vertical-offset="1905">
+        <state line="34" column="9" selection-start="950" selection-end="950" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2794">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/term/zip.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="38" selection-start="0" selection-end="6533" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4356">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/term/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="20" selection-start="3054" selection-end="3054" vertical-scroll-proportion="-10.321918" vertical-offset="10968" max-vertical-offset="11844">
           <folding />
         </state>
       </provider>

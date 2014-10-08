@@ -102,12 +102,30 @@
        (recur (z/next node))))))
 
 
+
+
 (defn replace-all-repeated [init rulefn]
   (loop [init init rulefn rulefn]
     (let [result (replace-all init rulefn)]
       (if (not= result init)
         (recur result rulefn)
         result))))
+
+
+
+
+(defn cases [patt expr]
+  (loop [node (z/zipper expr) matches []]
+    ;(println (z/node node))
+    (if (z/end? node)
+      matches
+      (if (match patt (z/node node))
+        (if-let [r (z/next-nondescending node)]
+          (recur r (conj matches (z/node node)))
+          (conj matches (z/node node)))
+        (recur (z/next node) matches)))))
+
+
 
 
 (defn replacement-rule [lhs rhs]
@@ -411,6 +429,27 @@
    [A :b (Pattern A (Blank Integer))]
 
 
+   (rule
+
+     [args ] rhs
+     [args2 ] rhs2
+     _ Map
+     )
+
+   (constructor
+     Map
+     [args] rhs
+     [args] rhs
+
+     )
+
+
+   (defrecord AtomicTerm [symbol var]
+              Ifn
+
+
+              )
+
 
 (defmacro rule2 [lhs rhs]
   (let [z1 (macroexpand (list 'term rhs) )]
@@ -631,4 +670,46 @@
 
 
   Attributes [fn]
+  )
+
+
+(comment
+
+
+  (def Map
+    (term-rules
+      Map
+      [a b c] rhs1
+      [?a ?b ?c] rhs2
+
+
+     )
+
+    )
+
+
+  (def Map
+    (fn
+      ([a b]
+       (if (good? a b)
+         (map a b)
+         (construct-term Map a b)))
+      ())
+    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   )

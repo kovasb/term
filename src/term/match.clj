@@ -96,23 +96,11 @@
        )))))
 
 
-(defn cases [patt expr]
-  (loop [node (z/zipper expr) matches []]
-    ;(println (z/node node))
-    (if (z/end? node)
-      matches
-      (if (match patt (z/node node))
-        (if-let [r (z/next-nondescending node)]
-          (recur r (conj matches (z/node node)))
-          (conj matches (z/node node)))
-        (recur (z/next node) matches)))))
 
 
 
-(comment
 
 
-  )
 
 
 (comment
